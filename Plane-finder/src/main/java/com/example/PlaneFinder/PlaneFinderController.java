@@ -3,6 +3,7 @@ package com.example.PlaneFinder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import reactor.core.publisher.Flux;
 
 import java.io.IOException;
 
@@ -17,7 +18,7 @@ public class PlaneFinderController {
 
     @ResponseBody
     @GetMapping("/aircraft")
-    public Iterable<Aircraft> getCurrentAircraft() throws IOException {
+    public Flux<Aircraft> getCurrentAircraft() throws IOException {
         return service.getAircraft();
     }
 }
